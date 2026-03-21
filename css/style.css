@@ -141,7 +141,7 @@
 .is-valid-client {
     border-color: #198754 !important;
 }
-
+/***
 .back-to-top {
     position: fixed !important;
     display: none;
@@ -149,7 +149,7 @@
     z-index: 99;
 }
 
-/*** Media Queries (Responsividade) ***/
+ Media Queries (Responsividade) ***/
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link { margin-left: 0; padding: 10px 0; }
 }
@@ -183,4 +183,46 @@
 .autocomplete-item:hover, .autocomplete-active {
     background-color: var(--bs-primary) !important;
     color: white;
+}
+/* Botão flutuante WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;           /* mesma altura base do back-to-top */
+    right: 110px;           /* posicionado à esquerda do back-to-top */
+    background-color: #25D366;  /* verde oficial WhatsApp */
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 38px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 999;           /* abaixo do back-to-top se quiser, ou 1001 para ficar por cima */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Ajuste fino para o ícone */
+.whatsapp-float i {
+    margin-top: -3px;
+}
+
+/* Em telas menores */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 32px;
+        bottom: 30px;
+        right: 100px;
+    }
 }
