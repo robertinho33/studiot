@@ -185,19 +185,20 @@
     color: white;
 }
 /* Botão flutuante WhatsApp */
+/* Botão WhatsApp flutuante - posicionado ao lado do back-to-top */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 40px;           /* mesma altura base do back-to-top */
-    right: 110px;           /* posicionado à esquerda do back-to-top */
-    background-color: #25D366;  /* verde oficial WhatsApp */
-    color: white;
+    bottom: 100px;           /* acima do back-to-top */
+    right: 30px;
+    background-color: #25D366;
+    color: #fff;
     border-radius: 50%;
     text-align: center;
     font-size: 38px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 999;           /* abaixo do back-to-top se quiser, ou 1001 para ficar por cima */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,23 +207,28 @@
 }
 
 .whatsapp-float:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    background-color: #20b358;
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    color: #fff;
 }
 
-/* Ajuste fino para o ícone */
 .whatsapp-float i {
-    margin-top: -3px;
+    margin-top: -4px; /* ajuste fino do ícone */
 }
 
-/* Em telas menores */
-@media (max-width: 768px) {
+/* Ajuste mobile */
+@media (max-width: 576px) {
     .whatsapp-float {
         width: 55px;
         height: 55px;
         font-size: 32px;
-        bottom: 30px;
-        right: 100px;
+        bottom: 90px;
     }
+}
+
+/* Hover no link do endereço (opcional) */
+.hover-text-primary:hover {
+    color: var(--bs-primary) !important;
+    text-decoration: none;
 }
