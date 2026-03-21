@@ -91,7 +91,7 @@
                 <div class="col-lg-6 hero-header-text py-5">
                     <div class="py-5 px-3 ps-lg-0">
                         <h1 class="font-dancing-script text-primary animated slideInLeft">Bem-vinda</h1>
-                        <h1 class="display-1 mb-4 animated slideInLeft">Salão de Beleza e Moda Feminina</h1>
+                        <h1 class="display-1 mb-4 animated slideInLeft">Salão m,m, de Beleza e Moda Feminina</h1>
                         <div class="row g-4 animated slideInLeft">
                             <div class="col-md-6">
                                 <div class="d-flex align-items-center">
@@ -353,8 +353,8 @@
        <!-- ... todo o conteúdo principal da página (hero, about, services, etc.) ... -->
 
     <!-- Placeholder para o rodapé completo -->
-    <div id="footer-placeholder"></div>
-
+  <!-- Footer + copyright dinâmico -->
+<div id="footer-placeholder"></div>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -366,19 +366,36 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- Carregamento dinâmico -->
-    <script>
-    $(function(){
-        $("#navbar-placeholder").load("navbar.html");
-        $("#footer-placeholder").load("footer.html", function() {
-            // Atualiza ano no footer
-            if (document.getElementById("anoAtual")) {
-                document.getElementById("anoAtual").textContent = new Date().getFullYear();
-            }
-            // Re-inicializa animações WOW se necessário
-            if (typeof WOW !== 'undefined') new WOW().init();
-        });
+    <!-- Carregamento dinâmico dos componentes comuns -->
+<script>
+$(function(){
+    // Carrega o header/navbar (está em includes/)
+    $("#header-placeholder").load("includes/header.html", function(response, status, xhr) {
+        if (status === "error") {
+            console.error("Erro ao carregar includes/header.html: " + xhr.status);
+            // Mostra mensagem de erro visível (opcional)
+            $("#header-placeholder").html('<div class="alert alert-danger text-center">Falha ao carregar o cabeçalho</div>');
+        } else {
+            // Opcional: código extra após carregar (ex: eventos dos botões Dia/Semana)
+            console.log("Header carregado com sucesso");
+        }
     });
-    </script>
+
+    // Carrega o footer
+    $("#footer-placeholder").load("includes/footer.html", function(response, status, xhr) {
+        if (status === "error") {
+            console.error("Erro ao carregar includes/footer.html: " + xhr.status);
+            $("#footer-placeholder").html('<div class="alert alert-danger text-center">Falha ao carregar o rodapé</div>');
+        } else {
+            // Atualiza o ano automaticamente
+            const anoSpan = document.getElementById("anoAtual");
+            if (anoSpan) {
+                anoSpan.textContent = new Date().getFullYear();
+            }
+            console.log("Footer carregado com sucesso");
+        }
+    });
+});
+</script>
 </body>
 </html>
