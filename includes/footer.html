@@ -1,5 +1,25 @@
 <!-- footer.html -->
+<div id="mapModal" class="map-modal">
+    <div class="map-modal-content">
+        <h5>Escolha o app:</h5>
 
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Engenheiro+Jorge+Oliva,+570,+São+Paulo"
+           target="_blank"
+           class="btn btn-primary w-100 mb-2">
+           📍 Google Maps
+        </a>
+
+        <a href="https://waze.com/ul?q=Rua+Engenheiro+Jorge+Oliva,+570,+São+Paulo"
+           target="_blank"
+           class="btn btn-dark w-100">
+           🚗 Waze
+        </a>
+
+        <button onclick="fecharMapa()" class="btn btn-link mt-3 text-white">
+            Cancelar
+        </button>
+    </div>
+</div>
 <!-- Seção principal do footer -->
 <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 wow fadeIn" data-wow-delay="0.2s">
     <div class="container py-5">

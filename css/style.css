@@ -252,57 +252,30 @@
     margin: 15% auto;
     color: #fff;
 }
-<!-- footer.html -->
+/* Hover no endereço */
+.hover-text-primary:hover {
+    color: #00454F !important;
+    text-decoration: none;
+}
 
-<!-- Seção principal do footer -->
-<div class="container-fluid footer position-relative bg-dark text-white-50 py-5 wow fadeIn" data-wow-delay="0.2s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-6 pe-lg-5">
-                <a href="index.html" class="navbar-brand">
-                    <h1 class="display-5 text-primary mb-0">Studio Totti</h1>
-                </a>
-                <p>Transformamos sua beleza com carinho e profissionalismo. Agende seu horário e sinta-se incrível!</p>
-                <p class="mb-2">
-                    <i class="fa fa-map-marker-alt me-2"></i>
-                    <a href="#" onclick="abrirMapa()" class="text-white-50 text-decoration-underline hover-text-primary">
-                    Rua Engenheiro Jorge Oliva, 570 - São Paulo, SP
-                    </a>
-                </p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-2"></i>(11) 98267-6539</p>
-                <p><i class="fa fa-envelope me-2"></i>contato@studiototti.com.br</p>
-                <!-- redes sociais aqui se quiser -->
-            </div>
-            <div class="col-lg-6 ps-lg-5">
-                <!-- colunas de links e newsletter -->
-                <div class="row g-4">
-                    <!-- ... copie o conteúdo das colunas que você tem ... -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+/* Modal */
+.map-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
 
-<!-- Copyright -->
-<div class="container-fluid bg-dark text-white border-top border-secondary py-4 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                © <a class="border-bottom" href="index.html">Studio Totti</a>, Todos os direitos reservados.
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                Desenvolvido por <a class="border-bottom" href="#">R2 HTML</a>.
-                Distribuído por <a class="border-bottom" href="#">R. HAIR</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/5511982676539?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Totti" 
-   class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco no WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+.map-modal-content {
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 320px;
+    margin: 15% auto;
+    color: #fff;
+}
