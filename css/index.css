@@ -48,7 +48,7 @@
   --sidebar-primary: #a67c52;
   --sidebar-primary-foreground: #faf8f5;
   --chart-1: #d4a574;
-  --chart-2: #b8860b;
+  --chart-2: #8ab80b;
   --chart-3: #a67c52;
   --chart-4: #8b6914;
   --chart-5: #704214;
@@ -63,7 +63,7 @@
   --secondary-foreground: oklch(0.2 0.01 65);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: #d4a574;
+  --accent: ##0F4F55;
   --accent-foreground: oklch(0.2 0.01 65);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
