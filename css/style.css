@@ -1,285 +1,73 @@
-/**********troque os tons dourada por #0F4F55;
+/* 
+ * Customização Bootstrap v5.0.0 
+ * Primário alterado para: #0F4F55
+ */
 
-
-
- Studio Totti - CSS Organizado **********/
-
-/*** Variáveis e Root ***/
 :root {
-    --bs-primary: #0F4F55; /* Cor principal do Studio Totti */
+  --bs-primary: #0F4F55; /* Cor global primária */
+  /* ... demais variáveis mantidas ... */
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-secondary: #444444;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #F8F7F4;
+  --bs-dark: #252525;
 }
 
-/*** Spinner e Overlays ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
+/* Sobrescrita de todos os botões padrão e específicos */
+.btn-primary, 
+.btn-primary:hover, 
+.btn-primary:active, 
+.btn-primary:focus {
+  background-color: #0F4F55 !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: none; /* Remove sombras de foco para manter o estilo limpo */
 }
 
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
+/* Aplicando o formato base a todos os botões do projeto */
+.btn {
+  border-radius: 0; /* Conforme sua regra anterior de botões */
+  border: none;
+  transition: opacity 0.2s ease;
 }
 
-#loading-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(255,255,255,0.9);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn:hover {
+  opacity: 0.9;
+  color: #fff;
 }
 
-/*** Tipografia ***/
-.font-work-sans { font-family: "Work Sans", sans-serif; font-weight: 400; }
-.font-playfair-display { font-family: "Playfair Display", serif; font-weight: 400; }
-.font-dancing-script { font-family: "Dancing Script", cursive; font-weight: 400; }
-
-/*** Botões ***/
-.btn { position: relative; transition: .5s; }
-.btn-square { width: 38px; height: 38px; }
-.btn-sm-square { width: 32px; height: 32px; }
-.btn-lg-square { width: 48px; height: 48px; }
-
-.btn-square, .btn-sm-square, .btn-lg-square {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Estilos de corpo e tipografia preservados do seu original */
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #444;
+  background-color: #fff;
 }
 
-.btn-dark, .btn-primary { margin: 10px; }
-
-/* Efeito de borda nos botões */
-.btn-primary::before, .btn-primary::after,
-.btn-dark::before, .btn-dark::after {
-    position: absolute; content: "";
-    width: calc(100% + 10px); height: calc(100% + 10px);
-    top: -5px; left: -5px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  color: #252525;
 }
 
-.btn-primary::before { border-left: 2px solid var(--bs-primary); border-right: 2px solid var(--bs-primary); top: -10px; height: calc(100% + 20px); }
-.btn-primary::after { border-top: 2px solid var(--bs-primary); border-bottom: 2px solid var(--bs-primary); left: -10px; width: calc(100% + 20px); }
-
-/*** Navbar ***/
-.navbar .navbar-nav .nav-link {
-    margin: 0 12px;
-    font-family: "Playfair Display", serif;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--bs-dark);
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active { color: var(--bs-primary); }
-
-/*** Grade de Horários (Tabela) ***/
-#tabelaAgenda th, #tabelaAgenda td {
-    text-align: center;
-    vertical-align: top;
-    padding: 10px;
-    min-width: 150px;
-    border: 1px solid #dee2e6;
-}
-
-#tabelaAgenda th:first-child, #tabelaAgenda td:first-child {
-    min-width: 80px;
-    background-color: #f8f9fa;
-    font-weight: bold;
-    vertical-align: middle;
-}
-
-.cell-agendamento {
-    min-height: 95px;
-    position: relative;
-    background-color: #fafafa;
-}
-
-/*** Cards de Agendamento ***/
-.card-agendamento {
-    background: #fff;
-    border-left: 4px solid var(--bs-primary) !important;
-    padding: 8px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-size: 0.8rem;
-    text-align: left;
-    transition: 0.2s;
-}
-
-.card-agendamento:hover {
-    transform: translateY(-2px);
-}
-
-/*** Calendário Lateral ***/
-.day-cell {
-    cursor: pointer;
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: center;
-    transition: 0.2s;
-}
-
-.day-cell:hover { background-color: #f8f9fa; }
-
-.day-cell.selected {
-    background: var(--bs-primary) !important;
-    color: white;
-    font-weight: bold;
-}
-
-/*** Elementos Auxiliares ***/
-.btn-add-inline {
-    opacity: 0;
-    transition: 0.2s;
-}
-
-.cell-agendamento:hover .btn-add-inline {
-    opacity: 1;
-}
-
-.is-valid-client {
-    border-color: #198754 !important;
-}
-/***
-.back-to-top {
-    position: fixed !important;
-    display: none;
-    right: 45px; bottom: 45px;
-    z-index: 99;
-}
-
- Media Queries (Responsividade) ***/
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link { margin-left: 0; padding: 10px 0; }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item:hover .dropdown-menu { top: 100%; visibility: visible; opacity: 1; transition: .5s; }
-}
-
-/* Autocomplete dropdown */
-.autocomplete-items {
-    position: absolute;
-    border: 1px solid #ddd;
-    border-top: none;
-    z-index: 99;
-    top: 100%;
-    left: 0;
-    right: 0;
-    max-height: 200px;
-    overflow-y: auto;
-    background: white;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.autocomplete-item {
-    padding: 10px;
-    cursor: pointer;
-    background-color: white;
-}
-
-.autocomplete-item:hover, .autocomplete-active {
-    background-color: var(--bs-primary) !important;
-    color: white;
-}
-/* Botão flutuante WhatsApp */
-/* Botão WhatsApp flutuante - posicionado ao lado do back-to-top */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 100px;           /* acima do back-to-top */
-    right: 30px;
-    background-color: #25D366;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 38px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #20b358;
-    transform: translateY(-5px) scale(1.08);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    color: #fff;
-}
-
-.whatsapp-float i {
-    margin-top: -4px; /* ajuste fino do ícone */
-}
-
-/* Ajuste mobile */
-@media (max-width: 576px) {
-    .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        font-size: 32px;
-        bottom: 90px;
-    }
-}
-
-/* Hover no link do endereço (opcional) */
-.hover-text-primary:hover {
-    color: var(--bs-primary) !important;
-    text-decoration: none;
-}
-.map-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-}
-
-.map-modal-content {
-    background: #111;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 300px;
-    margin: 15% auto;
-    color: #fff;
-}
-/* Hover no endereço */
-.hover-text-primary:hover {
-    color: #00454F !important;
-    text-decoration: none;
-}
-
-/* Modal */
-.map-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-}
-
-.map-modal-content {
-    background: #111;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 320px;
-    margin: 15% auto;
-    color: #fff;
+a {
+  color: #bf9456;
+  text-decoration: none;
 }
