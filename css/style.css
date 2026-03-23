@@ -1,8 +1,12 @@
-/********** Studio Totti - CSS Organizado **********/
+/**********troque os tons dourada por #0F4F55;
+
+
+
+ Studio Totti - CSS Organizado **********/
 
 /*** Variáveis e Root ***/
 :root {
-    --bs-primary: #c5a059; /* Cor principal do Studio Totti */
+    --bs-primary: #0F4F55; /* Cor principal do Studio Totti */
 }
 
 /*** Spinner e Overlays ***/
