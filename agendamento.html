@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Studio Totti - Agende Seu Horário</title>
+    <title>Studio Totti</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="agendamento online, salão de beleza, studio totti, marcar horário" name="keywords">
-    <meta content="Agende seu horário no Studio Totti de forma rápida e fácil. Escolha data, serviço e horário disponível!" name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -14,134 +14,41 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+        rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <style>
-        .calendar {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .calendar-header {
-            background: var(--bs-primary);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .calendar-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            text-align: center;
-            font-weight: bold;
-            padding: 15px;
-            background: #f8f9fa;
-        }
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            padding: 20px;
-        }
-        .day {
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
-        .day.other-month {
-            color: #ccc;
-        }
-        .day.today {
-            background: var(--bs-primary);
-            color: white;
-            font-weight: bold;
-        }
-        .day.available:hover {
-            background: #e3f2fd;
-            transform: scale(1.05);
-        }
-        .day.selected {
-            background: var(--bs-primary) !important;
-            color: white !important;
-            font-weight: bold;
-        }
-        .day.booked {
-            background: #ffebee;
-            color: #999;
-            cursor: not-allowed;
-        }
-        .time-slot {
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .time-slot.available {
-            background: #e8f5e8;
-            border: 2px solid #4caf50;
-        }
-        .time-slot.available:hover {
-            background: #4caf50;
-            color: white;
-            transform: translateY(-3px);
-        }
-        .time-slot.booked {
-            background: #ffebee;
-            color: #999;
-            cursor: not-allowed;
-        }
-    </style>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Spinner -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Carregando...</span>
         </div>
     </div>
+    <!-- Spinner End -->
 
-    <!-- Navbar (mesma do seu site) -->
-    <div class="container-fluid bg-light sticky-top p-0">
-        <nav class="navbar navbar-expand-lg navbar-light p-0">
-            <a href="index.html" class="navbar-brand bg-primary py-4 px-5 me-0">
-                <h1 class="mb-0"><i class="bi bi-scissors"></i> Studio Totti</h1>
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link">Início</a>
-                    <a href="about.html" class="nav-item nav-link">Sobre</a>
-                    <a href="service.html" class="nav-item nav-link">Serviços</a>
-                    <a href="price.html" class="nav-item nav-link">Preços</a>
-                    <a href="agendamento.html" class="nav-item nav-link active">Agendar</a>
-                    <a href="contact.html" class="nav-item nav-link">Contato</a>
-                </div>
-                <div class="d-flex">
-                    <a class="btn btn-primary btn-sm-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-primary btn-sm-square" href=""><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </nav>
+    <!-- Navbar Start -->
+      <div class="container-fluid bg-light sticky-top p-0">
+        <div id="header-placeholder"></div>
     </div>
+    <!-- Navbar End -->
 
     <!-- Page Header -->
     <div class="container-fluid bg-light page-header py-5 mb-5">
