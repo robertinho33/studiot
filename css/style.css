@@ -288,3 +288,8 @@
     color: #fff;
     text-size-adjust: h1;
 }
+.fontSize {
+    font-size: 100px;
+    color: #bf9456 !important;
+    font-family: "Dancing Script", cursive;
+}
