@@ -146,6 +146,9 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    
+    <!-- Footer + copyright dinâmico -->
+    <div id="footer-placeholder"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -159,6 +162,53 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+ <!-- Carregamento dinâmico dos componentes comuns -->
+<script>
+$(function(){
+    // Carrega o header/navbar (está em includes/)
+    $("#header-placeholder").load("includes/header.html", function(response, status, xhr) {
+        if (status === "error") {
+            console.error("Erro ao carregar includes/header.html: " + xhr.status);
+            // Mostra mensagem de erro visível (opcional)
+            $("#header-placeholder").html('<div class="alert alert-danger text-center">Falha ao carregar o cabeçalho</div>');
+        } else {
+            // Opcional: código extra após carregar (ex: eventos dos botões Dia/Semana)
+            console.log("Header carregado com sucesso");
+        }
+    });
 
+    // Carrega o footer
+    $("#footer-placeholder").load("includes/footer.html", function(response, status, xhr) {
+        if (status === "error") {
+            console.error("Erro ao carregar includes/footer.html: " + xhr.status);
+            $("#footer-placeholder").html('<div class="alert alert-danger text-center">Falha ao carregar o rodapé</div>');
+        } else {
+            // Atualiza o ano automaticamente
+            const anoSpan = document.getElementById("anoAtual");
+            if (anoSpan) {
+                anoSpan.textContent = new Date().getFullYear();
+            }
+            console.log("Footer carregado com sucesso");
+        }
+    });
+});
+</script>
+<script>
+function abrirMapa() {
+    document.getElementById("mapModal").style.display = "block";
+}
+
+function fecharMapa() {
+    document.getElementById("mapModal").style.display = "none";
+}
+
+// fechar ao clicar fora
+window.onclick = function(event) {
+    const modal = document.getElementById("mapModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
 </html>
