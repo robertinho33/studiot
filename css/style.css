@@ -5,9 +5,15 @@
  Studio Totti - CSS Organizado **********/
 
 /*** Variáveis e Root ***/
-:root {
-    --bs-primary: #0F4F55; /* Cor principal do Studio Totti */
-}
+        :root {
+            --primary-color: #0F4F55;
+            --primary-light: #1a6b73;
+            --primary-dark: #0a3a3f;
+            --gray-light: #d1d5db;
+            --gray-lighter: #f3f4f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+        }
 
 /*** Spinner e Overlays ***/
 #spinner {
