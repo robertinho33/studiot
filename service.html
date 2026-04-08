@@ -212,6 +212,19 @@ $(function(){
             }
             console.log("Footer carregado com sucesso");
         }
+    }); // Carrega o testimonial
+    $("#testimonial-placeholder").load("includes/testimonial.html", function(response, status, xhr) {
+        if (status === "error") {
+            console.error("Erro ao carregar includes/testimonial.html: " + xhr.status);
+            $("#testimonial-placeholder").html('<div class="alert alert-danger text-center">Falha ao carregar o rodapé</div>');
+        } else {
+            // Atualiza o ano automaticamente
+            const anoSpan = document.getElementById("anoAtual");
+            if (anoSpan) {
+                anoSpan.textContent = new Date().getFullYear();
+            }
+            console.log("testimonial carregado com sucesso");
+        }
     });
 });
 </script>
